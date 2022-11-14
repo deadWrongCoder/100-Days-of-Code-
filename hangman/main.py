@@ -35,7 +35,7 @@ for i in range(0, len(hidden_word)):
 print("The word is ", ("").join(printed_word))
 
 while not game_is_over:
-  guess = input("Type a letter: ")
+  guess = input("Type a letter: ").lower()
   for i in range(0, len(hidden_word)):
     if guess == hidden_word[i]:
       printed_word[i] = guess
