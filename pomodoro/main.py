@@ -1,12 +1,22 @@
 from tkinter import *
 
+reset_on =  0
 
 def timer():
+    global reset_on
+    reset_on = 0
     count_down(25)
+
 def count_down(count):
-    if count > 0:
+    global reset_on
+    if count > 0 and reset_on == 0:
         canvas.itemconfig(timer_text, text=str(count))
         window.after(1000, count_down, count - 1)
+def reset():
+    canvas.itemconfig(timer_text, text="00:00")
+    global reset_on
+    reset_on = 1
+
 
 
 
@@ -24,6 +34,6 @@ start_button = Button(text="Start", fg="green", command=timer)
 start_button.grid(row=2, column=0)
 tomato_count = Label(text="✔", fg="green", pady=20, font=("Courier", 30, "bold"))
 tomato_count.grid(row=2, column=1)
-reset_button = Button(text="Reset", fg="green")
+reset_button = Button(text="Reset", fg="green", command=reset)
 reset_button.grid(row=2, column=2)
 window.mainloop()
