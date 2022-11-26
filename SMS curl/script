@@ -1,9 +1,0 @@
-curl -X POST \
-  -H "Authorization: Bearer api_key" \
-  -H "Content-Type: application/json" -d '
-  {
-    "from": "447520650950",
-    "to": [ "phone_number" ],
-    "body": "Message from terminal"
-  }' \
-  "https://sms.api.sinch.com/xms/v1/1586c7369a0f4268bc4b051a621fe023/batches"
