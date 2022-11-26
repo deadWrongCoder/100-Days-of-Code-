@@ -12,7 +12,7 @@ data = """
   {
     "from": "447520650950",
     "to": [ "phone_number" ],
-    "body": "Python run the world!"
+    "body": "Python runs the world!"
   }
 """
 
