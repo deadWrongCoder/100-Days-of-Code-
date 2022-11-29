@@ -11,10 +11,7 @@ article_names = [value.find(name="a").getText() for value in articles]
 article_links = [value.find(name="a")["href"] for value in articles]
 
 
-article_scores = soup.find_all(name="span", class_="score")
-
-for i in range(0, len(article_scores)):
-    article_scores[i] = article_scores[i].getText()
+article_scores = [score.getText() for score in soup.find_all(name="span", class_="score")]
 
 print(article_names)
 print(article_links)
