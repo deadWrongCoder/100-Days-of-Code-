@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import messagebox
+import passgen
 
 window = Tk()
 
@@ -11,7 +12,6 @@ def add_password():
     if len(password) == 0 or len(website) == 0 or len(username) == 0:
         messagebox.showinfo(title="Attention", message="Make sure you've provided all the information.")
         return 0
-    
     is_ok = messagebox.askokcancel(title=website, message=f"You've entered: \n Email: {username} \n Password: {password}")
 
     if is_ok:
@@ -22,7 +22,11 @@ def add_password():
     username_entry.delete(0, END)
     password_entry.delete(0, END)
 
-
+def generate_password():
+    password_entry.delete(0, END)
+    password = ""
+    password = passgen.create_password()
+    password_entry.insert(0, password)
 
 window.config(padx=20, pady=20)
 window.title("Password Manager")
@@ -47,7 +51,7 @@ password = Label(text="Password: ")
 password.grid(row=3, column=0)
 password_entry = Entry(width=23)
 password_entry.grid(row=3, column=1)
-generate_button = Button(text="Generate")
+generate_button = Button(text="Generate", command=generate_password)
 generate_button.grid(row=3, column=2)
 
 add_button = Button(text="Add", width=34, command=add_password)
