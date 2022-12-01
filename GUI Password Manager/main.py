@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import messagebox
 import passgen
+import pyperclip
 
 window = Tk()
 
@@ -27,6 +28,7 @@ def generate_password():
     password = ""
     password = passgen.create_password()
     password_entry.insert(0, password)
+    pyperclip.copy(password)
 
 window.config(padx=20, pady=20)
 window.title("Password Manager")
@@ -58,4 +60,5 @@ add_button = Button(text="Add", width=34, command=add_password)
 add_button.grid(row=4, column=1, columnspan=2)
 
 window.mainloop()
+
 
