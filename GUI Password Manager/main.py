@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import messagebox
 
 window = Tk()
 
@@ -6,9 +7,17 @@ def add_password():
     website = website_entry.get()
     username = username_entry.get()
     password = password_entry.get()
-    string = website + " | " + username + " | " + password + "\n"
-    with open("passwords.txt", "a") as file:
-        file.write(string)
+
+    if len(password) == 0 or len(website) == 0 or len(username) == 0:
+        messagebox.showinfo(title="Attention", message="Make sure you've provided all the information.")
+        return 0
+    
+    is_ok = messagebox.askokcancel(title=website, message=f"You've entered: \n Email: {username} \n Password: {password}")
+
+    if is_ok:
+        string = website + " | " + username + " | " + password + "\n"
+        with open("passwords.txt", "a") as file:
+            file.write(string)
     website_entry.delete(0, END)
     username_entry.delete(0, END)
     password_entry.delete(0, END)
@@ -45,5 +54,4 @@ add_button = Button(text="Add", width=34, command=add_password)
 add_button.grid(row=4, column=1, columnspan=2)
 
 window.mainloop()
-
 
