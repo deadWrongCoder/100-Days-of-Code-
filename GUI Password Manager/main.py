@@ -2,6 +2,17 @@ from tkinter import *
 
 window = Tk()
 
+def add_password():
+    website = website_entry.get()
+    username = username_entry.get()
+    password = password_entry.get()
+    string = website + " | " + username + " | " + password
+    with open("passwords.txt", "a") as file:
+        file.write(string)
+        
+
+
+
 window.config(padx=20, pady=20)
 window.title("Password Manager")
 canvas = Canvas(width=200, height=200)
@@ -28,7 +39,8 @@ password_entry.grid(row=3, column=1)
 generate_button = Button(text="Generate")
 generate_button.grid(row=3, column=2)
 
-add_button = Button(text="Add", width=34)
+add_button = Button(text="Add", width=34, command=add_password)
 add_button.grid(row=4, column=1, columnspan=2)
 
 window.mainloop()
+
