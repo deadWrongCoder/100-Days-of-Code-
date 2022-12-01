@@ -6,7 +6,7 @@ def add_password():
     website = website_entry.get()
     username = username_entry.get()
     password = password_entry.get()
-    string = "\n" + website + " | " + username + " | " + password
+    string = website + " | " + username + " | " + password + "\n"
     with open("passwords.txt", "a") as file:
         file.write(string)
     website_entry.delete(0, END)
