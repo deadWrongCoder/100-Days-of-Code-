@@ -13,6 +13,7 @@ website = Label(text="Website: ")
 website.grid(row=1, column=0)
 website_entry = Entry(width=35)
 website_entry.grid(row=1, column=1, columnspan=2)
+website_entry.focus()
 
 username = Label(text="Username/email: ")
 username.grid(row=2, column=0)
