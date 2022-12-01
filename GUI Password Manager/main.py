@@ -6,10 +6,12 @@ def add_password():
     website = website_entry.get()
     username = username_entry.get()
     password = password_entry.get()
-    string = website + " | " + username + " | " + password
+    string = "\n" + website + " | " + username + " | " + password
     with open("passwords.txt", "a") as file:
         file.write(string)
-        
+    website_entry.delete(0, END)
+    username_entry.delete(0, END)
+    password_entry.delete(0, END)
 
 
 
@@ -43,4 +45,5 @@ add_button = Button(text="Add", width=34, command=add_password)
 add_button.grid(row=4, column=1, columnspan=2)
 
 window.mainloop()
+
 
