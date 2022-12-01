@@ -19,6 +19,7 @@ username = Label(text="Username/email: ")
 username.grid(row=2, column=0)
 username_entry = Entry(width=35)
 username_entry.grid(row=2, column=1, columnspan=2)
+username_entry.insert(0, "email@gmail.com")
 
 password = Label(text="Password: ")
 password.grid(row=3, column=0)
